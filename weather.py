@@ -15,7 +15,7 @@ def load_model(model_path):
         return None
 
 # Load the model
-model_path = '/Recog.keras'
+model_path = 'models/Recog.keras'  # Adjust path based on your folder structure
 model = load_model(model_path)
 
 st.write("""
