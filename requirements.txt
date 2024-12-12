@@ -4,4 +4,3 @@ numpy
 scikit-learn
 tensorflow
 matplotlib
-pip install streamlit pandas numpy scikit-learn tensorflow matplotlib
