@@ -1,8 +1,11 @@
 import streamlit as st
+import pandas as pd
+import numpy as np
 import tensorflow as tf
 import os
 from PIL import Image, ImageOps
-import numpy as np
+import matplotlib.pyplot as plt
+from sklearn import datasets
 
 # Function to load the model with enhanced error handling
 @st.cache_resource
@@ -18,8 +21,8 @@ def load_model(model_path):
         st.error(f"Error loading model: {e}")
         return None
 
-# Update this path to the correct path where your model file is located
-model_path = 'path/to/your/model/Recog.keras'  # Ensure this path is correct
+# Update the path to your model file
+model_path = 'weather_model.keras'  # Ensure this path is correct
 model = load_model(model_path)
 
 st.write("""
@@ -27,7 +30,7 @@ st.write("""
 """)
 
 # File uploader to upload plant photo
-file = st.file_uploader("Choose plant photo from computer", type=["jpg", "png"])
+file = st.file_uploader("Choose weather photo from computer", type=["jpg", "png"])
 
 def import_and_predict(image_data, model):
     size = (64, 64)
