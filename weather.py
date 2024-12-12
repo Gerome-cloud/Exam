@@ -19,7 +19,7 @@ def load_model(model_path):
         return None
 
 # Update this path to the correct path where your model file is located
-model_path = 'path/to/your/model/Recog.keras'  # Ensure this path is correct
+model_path = '../weather_model.keras'  # Ensure this path is correct
 model = load_model(model_path)
 
 st.write("""
