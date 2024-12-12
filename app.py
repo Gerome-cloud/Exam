@@ -21,11 +21,14 @@ def load_model(model_path):
         return None
 
 # Update the path to your model file
-model_path = 'weather_model.keras'
+model_path = 'weather_model.keras'  # Ensure this path is correct
 model = load_model(model_path)
 
-st.write("# Weather Prediction")
+st.write("""
+# Weather Prediction
+""")
 
+# File uploader to upload plant photo
 file = st.file_uploader("Choose plant photo from computer", type=["jpg", "png"])
 
 def import_and_predict(image_data, model):
