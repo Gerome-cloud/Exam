@@ -1,16 +1,17 @@
+import os
 import streamlit as st
 import tensorflow as tf
-import os
 from PIL import Image, ImageOps
 import numpy as np
+
+# List files in the current directory
+st.write("Files in the current directory:", os.listdir("."))
 
 # Function to load the model with enhanced error handling
 @st.cache_resource
 def load_model(model_path):
     try:
-        st.write(f"Trying to load model from: {model_path}")
         if os.path.exists(model_path):
-            st.write("Model file found.")
             model = tf.keras.models.load_model(model_path)
             return model
         else:
