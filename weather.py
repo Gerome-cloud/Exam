@@ -4,6 +4,7 @@ import os
 from PIL import Image, ImageOps
 import numpy as np
 
+# Function to load the model with error handling
 @st.cache_resource
 def load_model(model_path):
     if os.path.exists(model_path):
@@ -14,7 +15,7 @@ def load_model(model_path):
         return None
 
 # Load the model
-model_path = 'weather_model.keras'  
+model_path = '/Recog.keras'
 model = load_model(model_path)
 
 st.write("""
