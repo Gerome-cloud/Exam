@@ -1,15 +1,12 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
 import tensorflow as tf
 import os
 from PIL import Image, ImageOps
-import matplotlib.pyplot as plt
-from sklearn import datasets
+import numpy as np
 
-# Function to load the model with enhanced error handling
 @st.cache_resource
-def load_model(model_path):
+def load_model():
+    model_path = 'weather_model.keras'  # Ensure this path is correct
     try:
         if os.path.exists(model_path):
             model = tf.keras.models.load_model(model_path)
@@ -17,19 +14,14 @@ def load_model(model_path):
         else:
             st.error(f"Model file not found at {model_path}")
             return None
-    except (IOError, OSError, ValueError, TypeError) as e:
+    except Exception as e:
         st.error(f"Error loading model: {e}")
         return None
 
-# Update the path to your model file
-model_path = 'weather_model.keras'  # Ensure this path is correct
-model = load_model(model_path)
+model = load_model()
 
-st.write("""
-# Weather Prediction
-""")
+st.write("# Weather Prediction")
 
-# File uploader to upload plant photo
 file = st.file_uploader("Choose weather photo from computer", type=["jpg", "png"])
 
 def import_and_predict(image_data, model):
