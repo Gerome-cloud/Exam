@@ -15,7 +15,8 @@ def load_model(model_path):
         return None
 
 # Load the model
-model_path = 'models/Recog.keras'  # Adjust path based on your folder structure
+model = tf.keras.models.load_model('/path/to/Recog.keras')
+print(model.summary())
 model = load_model(model_path)
 
 st.write("""
