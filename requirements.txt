@@ -4,3 +4,4 @@ numpy
 scikit-learn
 tensorflow
 matplotlib
+pip install --upgrade tensorflow keras
