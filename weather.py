@@ -15,8 +15,7 @@ def load_model(model_path):
         return None
 
 # Load the model
-model = tf.keras.models.load_model('/path/to/Recog.keras')
-print(model.summary())
+model_path = 'Recog.keras'  
 model = load_model(model_path)
 
 st.write("""
