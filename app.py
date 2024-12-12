@@ -22,7 +22,7 @@ model = load_model()
 
 st.write("# Weather Prediction")
 
-file = st.file_uploader("Choose plant photo from computer", type=["jpg", "png"])
+file = st.file_uploader("Choose weather photo from computer", type=["jpg", "png"])
 
 def import_and_predict(image_data, model):
     size = (64, 64)
