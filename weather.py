@@ -15,7 +15,7 @@ def load_model(model_path):
         return None
 
 # Load the model
-model_path = 'Recog.keras'
+model_path = 'path/to/your/model/Recog.keras'  # Make sure to update the path
 model = load_model(model_path)
 
 st.write("""
@@ -23,7 +23,7 @@ st.write("""
 """)
 
 # File uploader to upload plant photo
-file = st.file_uploader("Choose a weather photo from your computer", type=["jpg", "png"])
+file = st.file_uploader("Choose plant photo from computer", type=["jpg", "png"])
 
 def import_and_predict(image_data, model):
     size = (64, 64)
