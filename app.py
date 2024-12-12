@@ -4,11 +4,13 @@ import os
 from PIL import Image, ImageOps
 import numpy as np
 
+# Function to load the model with enhanced error handling
 @st.cache_resource
-def load_model():
-    model_path = 'weather_model.keras'  # Ensure this path is correct
+def load_model(model_path):
     try:
+        st.write(f"Trying to load model from: {model_path}")
         if os.path.exists(model_path):
+            st.write("Model file found.")
             model = tf.keras.models.load_model(model_path)
             return model
         else:
@@ -18,11 +20,16 @@ def load_model():
         st.error(f"Error loading model: {e}")
         return None
 
-model = load_model()
+# Update the path to your model file
+model_path = 'weather_model.keras'  # Ensure this path is correct
+model = load_model(model_path)
 
-st.write("# Weather Prediction")
+st.write("""
+# Weather Prediction
+""")
 
-file = st.file_uploader("Choose weather photo from computer", type=["jpg", "png"])
+# File uploader to upload plant photo
+file = st.file_uploader("Choose plant photo from computer", type=["jpg", "png"])
 
 def import_and_predict(image_data, model):
     size = (64, 64)
