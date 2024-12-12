@@ -15,7 +15,7 @@ def load_model(model_path):
         return None
 
 # Load the model
-model_path = '/weather_model.keras'
+model_path = 'weather_model.keras'
 model = load_model(model_path)
 
 st.write("""
